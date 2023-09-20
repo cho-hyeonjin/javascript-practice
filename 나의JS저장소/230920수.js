@@ -2,12 +2,18 @@
 //
 // 1) 객체 리터럴 방식으로 생성한 객체의 경우 메서드 내부에서 메서드 자신이 속한 객체를 가리키는 식별자를 재귀적으로 참조할 수 있다.
 
-// const circle = {
-//   radius: 5,
+// 1) 객체 리터럴을 이용한 객체 생성 케이스
 
-//   getDiameter() {
-//     return 2 * circle.radius;
-//   },
+// const circle = {
+
+//     radius: 5,
+
+//     getDiameter() {
+
+//         return 2 * circle.radius;
+
+//     },
+
 // };
 
 // console.log(circle.getDiameter());
@@ -18,22 +24,26 @@
 // ! But!! 이렇게 자기 자신이 속한 객체를 참조하는 '재귀'형식의 참조는 지양해야 한다.
 // 💡 (객체 리터럴 말고) 생성자 함수를 이용해서 instance를 생성하는 경우를 알아보자.
 
-// 2) 생성자 함수를 이용한 인스턴스 생성
-// ☑️ 생성자 함수를 이용한 인스턴스 생성 > this를 알기 전
-
-function Circle(radius) {
-  // 이 시점에는 생성자 함수 Circle()이 생성할 인스턴스를 가리키는 식별자를 알 수 없다.
-
-  아직_모르지만_무언가가_오겠지.radius = radius;
+// 2) 생성자 함수를 이용한 인스턴스 생성 케이스 > ☑️ Before 'this'
+function CircleBeforThis(radius) {
+  생성자함수가_future에_생성할_인스턴스.radius = radius;
 }
 
-Circle.prototype.getDiameter = function () {
-  // 이 시점에서 또한 생성자 함수 Circle()이 생성할 인스턴스를 가리키는 식별자를 알 수 없다.
-
-  return 2 * 아직_모르지만_무언가가_오겠지.radius;
+CircleBeforThis.prototype.getDiameter = function () {
+  return 2 * 생성자함수가_future에_생성할_인스턴스.radius;
 };
 
-// 생성자 함수로 인스턴스를 생성하려면 먼저 생성자 함수를 정의해야 한다.
-const circle = new Circle(5);
+const circleBT = new CircleBeforThis(5);
+// console.log(circleBT.getDiameter()); // 에러 날 것임 -> 왜 에러 나는 지 설명해보기!
 
-// ✅ 생성자 함수를 이용한 인스턴스 생성 > this를 만난 후
+// 2) 생성자 함수를 이용한 인스턴스 생성 케이스 > ✅ After 'this'
+function CircleAfterThis(radius) {
+  this.radius = radius;
+}
+
+CircleAfterThis.prototype.getDiameter = function () {
+  return 2 * this.radius;
+};
+
+const circleAT = new CircleAfterThis(5);
+console.log(circleAT.getDiameter()); // 10
