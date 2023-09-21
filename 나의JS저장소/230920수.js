@@ -4,19 +4,15 @@
 
 // 1) 객체 리터럴을 이용한 객체 생성 케이스
 
-// const circle = {
+const circle = {
+  radius: 5,
 
-//     radius: 5,
+  getDiameter() {
+    return 2 * circle.radius;
+  },
+};
 
-//     getDiameter() {
-
-//         return 2 * circle.radius;
-
-//     },
-
-// };
-
-// console.log(circle.getDiameter());
+console.log(circle.getDiameter());
 
 // circle 변수에 할당된 객체 리터럴은 circle에 할당되기 직전에 평가되어 객체가 생성된다. -> 생성된 객체가 circle 변수에 할당된다.
 // getDiameter함수는 그 이후에 호출되기 때문에 getDiameter함수 내부에서 자기 자신이 속한 객체가 할당된 변수 circle을 참조할 수 있다.
@@ -46,4 +42,5 @@ CircleAfterThis.prototype.getDiameter = function () {
 };
 
 const circleAT = new CircleAfterThis(5);
+
 console.log(circleAT.getDiameter()); // 10
