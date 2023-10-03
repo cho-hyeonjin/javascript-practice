@@ -29,3 +29,5 @@ console.log(rect1.isRectangle(rect1)); // rect1에는 Rectangle을 상속받은 
 //                                        ∴ Uncaught TypeError: rect1.isRectangle is not a function 에러 찍힐 것임
 //                                        => 인스턴스에서는 클래스에 직접 접근할 수 없다!
 console.log(Rectangle.isRectangle(rect1)); // rect1의 width는 3, height는 4이기 때문에 true가 뜰 것임 => 인스턴스에 접근하기 위해서는 클래스를 this로 해서 호출해야만 가능하다.
+
+// ===========================================================================================================================================================
