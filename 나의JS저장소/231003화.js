@@ -31,8 +31,8 @@ console.log(a);
 // *    -> 3가지. 1) VariableEnvironment
 // *                a) 현재 컨텍스트 내의 식별자 정보
 // *                b) 외부 환경 정보 (무엇?)
-// *                c) 선언 시점의 LexicalEnvironment의 스냅샷
-// *                     (LexicalEnvironmet 원본 모양. LexicalEnvironmet는 변경사항이 실시간으로 반영되어 바뀌는 놈이라 출고할 때의 사진을 찍어놓는 느낌인듯.)
+// *                : 선언 시점의 LexicalEnvironment의 스냅샷
+// *                  (LexicalEnvironmet 원본. LexicalEnvironmet는 변경사항이 실시간으로 반영되어 바뀌는 놈이라 출고할 때의 사진을 찍어 놓는 느낌인듯.)
 // *             2) LexicalEnvirontment
 // *                : 처음에는 VariableEnvriontment와 같지만 변경사항 실시간 반영
 // *             3) ThisBinding
