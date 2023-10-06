@@ -49,3 +49,22 @@ var obj = {
 };
 obj.method.apply({ a: 4 }, [5, 6]); // 내 예상: 4 5 6
 //                                     정답: 4 5 6
+//
+//
+//
+// call / apply 메서드의 활용
+// (1) 유사배열객체(array-like object)에 배열 메서드를 적용
+// * 유사배열객체(array-like object)?
+// * 키가 0 또는 양의 정수인 프로퍼티가 존재하고, length프로퍼티 값이 0 또는 양의 정수인 객체. 즉 구조가 배열과 유사한 객체.
+var obj = {
+  0: "a",
+  1: "b",
+  2: "c",
+  length: 3,
+}; // --- 유사배열객체 obj
+Array.prototype.push.call(obj, "d"); // --- Array메서드인 push에 call메서드를 이용, 첫 인자로 유사배열객체 obj를 this바인딩하고, 'd'를 매개변수로 전달
+console.log(obj); // 내 예상: { 0: "a", 1: "b", 2: "c", length: 3, 4: "d" } ..?
+//                     정답: { 0: "a", 1: "b", 2: "c", 3:"d", length: 4 }
+
+var arr = Array.prototyep.slice.call(obj); // --- slice메서드는 시작idx, 마지막idx를 매개변수로 받아 시작idx에 해당하는 요소부터 마지막idx 전 요소까지 잘라내 배열로 만드는 (얕은복사)메서드. 매개변수를 따로 전달하지 않을 경우 전체 배열을 얕은복사하여 리턴.
+console.log(arr); // --- [ "a", "b", "c", "d" ] // 유사배열객체obj를 배열메서드slice가 호출한 call메서드의 첫번째 인자로 전달, 배열로 전환되어 리턴.
