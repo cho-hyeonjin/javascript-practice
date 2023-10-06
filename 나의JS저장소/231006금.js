@@ -27,3 +27,25 @@ obj.method(2, 3); // 내 예상: 1 2 3
 //                     정답: 1 2 3
 obj.method.call({ a: 4 }, 5, 6); // 내 예상: { a: 4 } 5 6
 //                                    정답: 4 5 6
+
+// * Function.prototype.apply(thisArg[, argsArray])
+// * apply메서드는 call메서드와 기능적으로는 완전 동일하지만 첫 인자 다름인자를 다루는 방식이 약간 다른 메서드.
+// * apply메서드는 첫 인자는 call메서드와 같이 this에 바인딩. 두번째 인자는 배열로 받아 그 배열의 요소들을 호출할 함수의 매개변수로 지정
+// * call메서드는 두번째 인자부터 뒷 인자들을 호출할 함수의 매개변수로 지정
+
+// apply메서드
+// (1)일반함수가 호출주체인 케이스
+var func = function (a, b, c) {
+  console.log(this, a, b, c);
+};
+func.apply({ x: 1 }, [4, 5, 6]); // 내 예상: {x: 1} 4 5 6
+//                                  정답: {x: 1} 4 5 6
+// (2)메서드가 호출주체인 케이스
+var obj = {
+  a: 1,
+  method: function (x, y) {
+    console.log(this.a, x, y);
+  },
+};
+obj.method.apply({ a: 4 }, [5, 6]); // 내 예상: 4 5 6
+//                                     정답: 4 5 6
