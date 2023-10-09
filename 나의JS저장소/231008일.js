@@ -7,7 +7,7 @@
 // > ② prototype method(프로토타입 메서드)
 // > ③ static method(정적 메서드)
 // * constructor
-// * 생성자함수
+// * 생성자
 // > 생성자 constructor 예제 코드
 class Person {
   // 생성자
