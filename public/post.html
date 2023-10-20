@@ -4,9 +4,11 @@
     <pre></pre>
     <script>
       const xhr = new XMLHttpRequest();
+
       // HTTP 요청 POST 메서드로 초기화
       // todos 리소스(231020금.json에 있음)에 새로운 todo를 생성
       xhr.open("POST", "/todos");
+
       // HTTP 요청 몸체에 담아 서버로 전송할 페이로드의 MIME 타입 json으로 지정
       xhr.setRequestHeader("content-type", "application/json");
 
