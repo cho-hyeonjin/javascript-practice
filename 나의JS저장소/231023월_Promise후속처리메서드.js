@@ -33,3 +33,25 @@ new Promise((_, reject) => reject(new Error("rejected"))).then(undefined, (e) =>
 new Promise(() => {}).finally(() =>
   console.log("fainally는 비동기 처리상태와 무관하게 한 번 호출되는 메서드")
 ); // fainally는 비동기 처리상태와 무관하게 한 번 호출되는 메서드
+
+// ! Promise 후속 처리 메서드 3종을 이용한 예제코드
+const promiseGet = (url) => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.send();
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        resolve(JSON.parse(xhr.response));
+      } else {
+        reject(new Error(xhr.status));
+      }
+    };
+  });
+};
+
+promiseGet("https://jsonPlaceholder.typicode.com/posts/1")
+  .then((res) => console.log(res)) // .then은 Promise를 반환
+  .catch((err) => console.error(err)) // .then이 리턴한 Promise가 rejected상태인 경우 콘솔에 에러 발생 &&  .catch도 Promise 반환
+  .finally(() => console.log("이제는 우리가 헤어져야 할 시간")); // .catch가 리턴한 Promise에 대해 무조건 한 번 호출.  // 이제는 우리가 헤어져야 할 시간
