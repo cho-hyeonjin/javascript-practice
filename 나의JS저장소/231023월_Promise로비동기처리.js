@@ -17,6 +17,8 @@ const promiseGet = (url) => {
 };
 
 promiseGet("https://jsonplaceholder.typicode.com/posts/1");
-// promiseGet 함수는 Promise를 반환한다!
+// promiseGet 함수는 Promise를 반환!
 
 // --> Promise {<pending>} 이 찍힘
+//     GET https://jsonplaceholder.tyicode.com/posts/1 net::ERR_NAME_NOT_RESOLVED
+//     위 순서대로 찍힘.
