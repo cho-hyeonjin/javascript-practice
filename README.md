@@ -1,26 +1,26 @@
-# <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="20"> 🧠 인간 자바스크립트 엔진 되기
+# <img src="https://static.wikia.nocookie.net/garpedia/images/4/49/The_Magic_School_Bus_%28character%29.png/revision/latest?cb=20190214234348" width="70px"> The Magic School Bus : Inside the JavaScript <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="25px"/> ✨
 
-더 이상 혼란 속에 코딩할 수 없다!
+### JS를 공부하며 사용한 예제 코드, 연습용 코드 등을 모아둔 레포지토리입니다.
 
-저는 올해가 가기 전에 뇌에 자바스크립트 엔진을 탑재하기로 했습니다. <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="12"> 🧠 ✨
+저는 2022년 말부터 자바스크립트에 대해 좀 더 깊이 이해하는 시간을 갖고 있습니다.
 
-모던 자바스크립트 딥다이브, 코어 자바스크립트를 주축으로 자바스크립트의 작동 원리부터 다시 공부하는 중인데,
+신기한 스쿨버스(이것을 안다면 당신은 높은 확률로 M세대)를 타고 자바스크립트 내부를 여행한다 생각하며
 
-그동안 자바스크립트에 대한 근본적인 이해가 부족했다는 것을 느끼는 요즘입니다.
+흥미로운 자바스크립트 탐구 생활을 이어가 보도록 하겠습니다. 🔍✨
 
-수박 겉 핥기 식으로 알고 있던 개념들! (호이스팅, 스코프, 실행 컨텍스트, ...)
+코딩은 즐겁게 🤓
 
-그것들을 근본적으로 이해하는 과정이 쉽게 느껴지진 않지만 알아가는 즐거움이 있어 좋습니다.
-
-간단한 거라도 코드 짜보기를 병행하면 개념과 코드를 연결 짓는 데에 도움이 될 듯하여 이 레포지토리를 팠습니다.
-
-즐겁게 공부해서 올해가 가기 전에 인간 자바스크립트 엔진 데뷔에 성공하겠습니다. 🧙🏻‍♀️
+![inside the js](https://github.com/cho-hyeonjin/javascript-practice/assets/78816754/7ceb3ddc-1545-4840-8751-90bec10b11a2)
 
 ## 참고 자료 리스트
 
-> <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158391720.jpg" height="30px"> &nbsp; [코어 자바스크립트 / 정재남 저 / 위키북스](https://www.yes24.com/Product/Goods/78586788)
+> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/MDN_Web_Docs_logo.svg/1200px-MDN_Web_Docs_logo.svg.png" height="15px"> &nbsp; [Mozilla Develper Network](https://developer.mozilla.org/en-US/)
 >
-> <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158392239.jpg" height="30px"> &nbsp; [모던 자바스크립트 Deep Dive / 이웅모 저 / 위키북스 ](https://product.kyobobook.co.kr/detail/S000001766445)
+> <img src="https://ko.javascript.info/img/site_preview_en_512x512.png" height="30px"> &nbsp; [JAVASCRIPT.INFO : The Modern JavaScript Tutorial](https://javascript.info/)
+>
+> <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158392239.jpg" height="30px"> &nbsp; [ 모던 자바스크립트 Deep Dive / 이웅모 저 / 위키북스 ](https://product.kyobobook.co.kr/detail/S000001766445)
+>
+> <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158391720.jpg" height="30px"> &nbsp; [코어 자바스크립트 / 정재남 저 / 위키북스](https://www.yes24.com/Product/Goods/78586788)
 >
 > <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791165215873.jpg" height="30px"> &nbsp; [Let’s Get IT 자바스크립트 프로그래밍 / 조현영 저 / 길벗 ](https://product.kyobobook.co.kr/detail/S000001834638)
 >
