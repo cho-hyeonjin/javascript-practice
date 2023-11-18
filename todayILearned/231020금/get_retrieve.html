@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <pre></pre>
+    <script>
+      // XMLHttpRequest 객체 생성
+      const xhr = new XMLHttpRequest();
+
+      // HTTP 요청 초기화
+      // todos 리소스(231020금.json에 있음)에서 모든 todo 취득(retrieve)
+      xhr.open("GET", "/todos/3");
+
+      // HTTP 요청 전송
+      xhr.send();
+
+      // load 이벤트는 요청이 성공된 경우 발생
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          document.querySelector("pre").textContent = xhr.response;
+        } else {
+          console.error("Error", xhr.status, xhr.stautsText);
+        }
+      };
+    </script>
+  </body>
+</html>
