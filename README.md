@@ -1,8 +1,8 @@
-# <img src="https://static.wikia.nocookie.net/garpedia/images/4/49/The_Magic_School_Bus_%28character%29.png/revision/latest?cb=20190214234348" width="70px"> The Magic School Bus : Inside the JavaScript <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="25px"/> ✨
+# <img src="https://static.wikia.nocookie.net/garpedia/images/4/49/The_Magic_School_Bus_%28character%29.png/revision/latest?cb=20190214234348" width="80px"> The Magic School Bus : Inside the JavaScript ✨
 
-### JS를 공부하며 사용한 예제 코드, 연습용 코드 등을 모아둔 레포지토리입니다.
+### 자바스크립트를 공부하며 사용한 예제 코드, 연습용 코드 등을 모아둔 레포지토리입니다.
 
-저는 2022년 말부터 자바스크립트에 대해 좀 더 깊이 이해하는 시간을 갖고 있습니다.
+저는 2023년 말부터 자바스크립트에 대해 좀 더 깊이 이해하는 시간을 갖고 있습니다.
 
 신기한 스쿨버스(이것을 안다면 당신은 높은 확률로 M세대)를 타고 자바스크립트 내부를 여행한다 생각하며
 
@@ -10,7 +10,11 @@
 
 코딩은 즐겁게 🤓
 
-![inside the js](https://github.com/cho-hyeonjin/javascript-practice/assets/78816754/7ceb3ddc-1545-4840-8751-90bec10b11a2)
+<img src="https://github.com/cho-hyeonjin/javascript-practice/assets/78816754/7ceb3ddc-1545-4840-8751-90bec10b11a2" width="50%" />
+
+<br/>
+
+<br/>
 
 ## 참고 자료 리스트
 
