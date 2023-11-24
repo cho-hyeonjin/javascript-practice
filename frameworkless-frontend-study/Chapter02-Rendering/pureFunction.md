@@ -18,7 +18,7 @@
 
 > ### Pure Functions Rendering | 순수 함수 렌더링
 >
-> ### Pure Functions Rendering Ver.1 - Single, huge Function | 하나의 큰 함수
+> ### Pure Functions Rendering Ver.1 - Single, huge Function | 하나의 거대한 함수
 >
 > ### Let's Review Our Code | Ver.1 코드 리뷰
 >
