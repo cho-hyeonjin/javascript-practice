@@ -10,14 +10,34 @@
 
 <br/>
 
-In this folder, I'll divide the view.js of 01 into smaller functions and try to address the consistency problem.
+> What?
 
-이번 폴더에서는 01 폴더의 view.js에서 `'하나의 거대한 함수'가 DOM element 여러 개를 조작`하는 데에서 생기는 문제를 해결하기 위해
+This directory contains the refactored codes from the previous directory(TodoMVC_Ver.1.0).
 
-기존 view의 무명 함수를 `작은 함수들`로 쪼개보았습니다.
+이 디렉토리에서는 TodoMVC 애플리케이션 Ver.1.0의 View 방식인
+
+`'하나의 거대한 함수'가 DOM element 여러 개를 조작`하는 방식이 가진 문제를 해결하기 위해
+
+이를 `'여러 개의 작은 함수들'`로 나누어 리팩토링했습니다.
+
+TodoMVC 애플리케이션 Ver.1.0 에서 view함수의 결합도(Coupling)를 낮추는 작업이자
+
+전체적으로 응집도(Cohesion) 높은 함수들로 구성된 시스템을 만들기 위한 첫번째 시도입니다.
+
+    📃원문 참조
+
+    In the next example, we will divide the view into smaller functions and try to address the consistency problem.
+
+    이를 한글 번역본에서는 consistency를 '일관성 문제'라고 번역하고 있습니다.
+
+    이는 TodoMVC 애플리케이션 Ver.1.0의 view.js가 가진 낮은 응집도와 높은 결합도를 뜻합니다.
+
+<br/>
+
+> 변경된 폴더 구조
 
 ```
-(前) Ver.1 - 하나의 거대한 view 함수 방식일 때의 폴더 구조
+(Before) Ver.1 - 하나의 거대한 view 함수 방식일 때의 폴더 구조
 
 📦01
 ┣ 📜getTodos.js
@@ -29,7 +49,7 @@ In this folder, I'll divide the view.js of 01 into smaller functions and try to 
 
 ```
 
-(現) Ver.2 - 작은 함수들로 나누고, view 함수에서 그것들을 import 해서 사용하는 방식일 때의 폴더 구조
+(After) Ver.2 - 작은 함수들로 나누고, view 함수에서 그것들을 import 해서 사용하는 방식일 때의 폴더 구조
 
 📦02
 ┣ 📂view

@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/todomvc-common@1.0.5/base.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/todomvc-app-css@2.1.2/index.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+    <title>프레임워크 없는 FE 개발 챕터2 - 렌더링</title>
+  </head>
+
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1>todos</h1>
+        <input
+          class="new-todo"
+          placeholder="What needs to be done?"
+          autofocus
+        />
+      </header>
+      <section class="main">
+        <input id="toggle-all" class="toggle-all" type="checkbox" />
+        <label for="toggle-all"> Mark all as complete </label>
+        <ul class="todo-list" data-component="todos"></ul>
+        <!--  Put the "name" of the component in data-component attribute.
+              This attribute replaces the imperative invocation(필수적인 호출) of view functions.
+              : HTML tag (요소, DOM 노드)의 data-component 속성값으로 컴포넌트의 이름을 할당해주면, 이 속성이 view 함수의 필수 호출을 대체할 수 있게 됩니다.
+
+              지금 우리가 하려는 작업은 컴포넌트 라이브러리를 생성하는 것입니다.
+        -->
+      </section>
+      <footer class="footer">
+        <span class="todo-count" data-component="counter"> 1 Item Left </span>
+        <!-- -->
+        <ul class="filters" data-component="filters">
+          <li>
+            <a href="#/">All</a>
+          </li>
+          <li>
+            <a href="#/active">Active</a>
+          </li>
+          <li>
+            <a href="#/completed">Completed</a>
+          </li>
+        </ul>
+        <button class="clear-completed">Clear completed</button>
+      </footer>
+    </section>
+    <footer class="info">
+      <p>Double-click to edit a todo</p>
+      <p>
+        Created by
+        <a href="http://twitter.com/thestrazz86">Francesco Strazzullo</a>
+      </p>
+      <p>Thanks to <a href="http://todomvc.com">TodoMVC</a></p>
+    </footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
