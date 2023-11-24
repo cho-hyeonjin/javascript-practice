@@ -10,8 +10,6 @@
 
 <br/>
 
-> What?
-
 This directory contains the refactored codes from the previous directory(TodoMVC_Ver.1.0).
 
 이 디렉토리에서는 TodoMVC 애플리케이션 Ver.1.0의 View 방식인
