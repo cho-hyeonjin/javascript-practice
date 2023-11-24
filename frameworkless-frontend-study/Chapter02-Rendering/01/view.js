@@ -1,4 +1,8 @@
 // 📃 view 역할을 하는 파일
+// Simple Rendering Engine Ver.2 is also based on 'requestAnimationFrame()' API.
+// In Ver.2, ver.1(single & huge view function) was Divide Into Smaller Functions(todos.js, counter.js, filter.js).
+// Then, imported them into 'app.js' and using in view function(anonymouse function).
+
 const getTodoElement = (todo) => {
   const { text, completed } = todo;
 
