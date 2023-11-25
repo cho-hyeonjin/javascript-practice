@@ -10,8 +10,6 @@
 
 <br/>
 
-> What?
-
 This directory contains the refactored codes from the previous directory(TodoMVC_Ver.1.0).
 
 이 디렉토리에서는 TodoMVC 애플리케이션 Ver.1.0의 View 방식인
@@ -70,3 +68,41 @@ Ver.1에서 Ver.2로 리팩토링 후 바뀐 부분을 표로 정리해 보았�
 | li view   | `📜view.js에서 getTodoElement 함수 정의`<br/>`📜view.js에서 export 하는 app view 함수(익명) 內 호출` | `📂view/📜todos.js에서 getTodoElement 함수 정의 → export 하는 익명 함수 內 호출`<br/>`📂view/📜app.js에서 이를 import → export 하는 app view 함수(익명) 內 호출` |
 | li count  | `📜view.js에서 getTodoCount 함수 정의` <br/> `📜view.js에서 export 하는 app view 함수(익명) 內 호출` | `📂view/📜counter.js에서 getTodoCount 함수 정의 → export 하는 익명 함수 內 호출`<br/>`📂view/📜app.js에서 이를 import → export 하는 app view 함수(익명) 內 호출` |
 | li filter | `📜view.js에서 export 하는 app view 함수(익명) 內 필터링`                                            | `📂view/📜filters.js에서 export 하는 익명 함수 內 필터링` <br/> `📂view/📜app.js에서 이를 import → export 하는 app view 함수(익명) 內 호출`                      |
+
+Our code is way better now. We have three separate functions with the same signature.
+
+These functions are our first draft of a component library.
+
+> ❓ [함수 시그니처](https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function#signatures_in_javascript)
+
+    함수 시그니처는 Java나 TypeScript, C++ 등의 언어에도 존재하는 개념입니다.
+
+    참고 자료: https://medium.com/@ludico8/function-ludico8-arguments-aa39a4adf9d
+
+```js
+// 📜app.js
+
+import todosView from './todos.js';
+import counterView from './counter.js';
+import filtersView from './filters.js';
+
+export default (targetElement, state) => {
+  // → 함수 시그니처
+  const element = targetElement.cloneNode(true);
+
+  const list = element.querySelector('.todo-list');
+  const counter = element.querySelector('.todo-count');
+  const filters = element.querySelector('.filters');
+
+  // ↓ 동일한 함수 시그니처를 공유하는 3개의 개별 함수
+  list.replaceWith(todosView(list, state));
+  counter.replaceWith(counterView(counter, state));
+  filters.replaceWith(filtersView(filters, state));
+
+  return element;
+};
+```
+
+Todo MVC Ver.2.0에서는 **동일한 함수 시그니처를 공유하는 3개의 분리된 View 함수** `todosView()`, `counterView()`, `filterView()` 를 갖게 되었습니다.
+
+이 함수들은 `컴포넌트 라이브러리`의 첫번째 초안입니다.
