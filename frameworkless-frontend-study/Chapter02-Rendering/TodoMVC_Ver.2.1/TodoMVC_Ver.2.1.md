@@ -134,15 +134,14 @@ Ver.2.0 에서의 렌더링 엔진(app.js)을 선언적 방식을 따르는 컴�
 
     우리는 TodoMVC 애플리케이션을 '컴포넌트 라이브러리'로 전환한다는 목적을 가지고,
     html 요소와 해당 요소를 담당하는 컴포넌트 함수를 매핑한 객체 registry를 생성했습니다.
-    registry는 객체 중에서도 레지스트리 객체입니다.
 
 <img style="" width="65%" src="https://github.com/cho-hyeonjin/javascript-practice/assets/78816754/9cade357-2b26-4f9e-a148-c4433127896f">
 
-<span style="font-size: 12px; text-align: center;">▲ 이해를 돕기 위해 레지스트리 개념에 대한 그림을 그려 첨부합니다.</span>
+<span style="font-size: 10px; text-align: center;">▲ 이해를 돕기 위해 레지스트리 개념에 대한 그림을 그려 첨부합니다.</span>
 
 그럼 이제 문제 해결은 간단해 보입니다.
 
-프로젝트 내의 모든 view 컴포넌트 1, 2번 과정을 적용하는 겁니다.
+프로젝트 내의 모든 view 컴포넌트에 1, 2번 과정을 적용하는 겁니다.
 
 1. 컴포넌트명을 해당 컴포넌트가 담당하는 html요소(DOM 노드)의 data-component 속성값에 할당하고,
 
@@ -152,6 +151,67 @@ Ver.2.0 에서의 렌더링 엔진(app.js)을 선언적 방식을 따르는 컴�
 
 **프로젝트 내의 모든 컴포넌트가 이 최상위 객체를 상속받아 생성되면 되지 않을까요?**
 
-좋은 추측입니다. 하지만 우리는 순수 함수를 사용한 렌더링 엔진을 만들고 있기 때문에 컴포넌트에 객체의 상속을 적용할 수 없습니다.
+좋은 추측입니다. **하지만 우리는 순수 함수를 사용한 렌더링 엔진을 만들고 있기 때문에 컴포넌트에 객체의 상속을 적용할 수 없습니다.**
 
-객체에는 메서드가 포함될 수 있고, 메서드는 함수 외부의 값을 변경시킬 수 있기 때문에 순수함수의 조건에 위배됩니다.
+객체에는 메서드가 포함될 수 있고, 메서드는 함수 외부의 값을 변경시킬 수 있기 때문에 순수 함수의 조건에 위배됩니다.
+
+그럼 어떻게 해야 할까요? 이렇게 상속을 이용하는 방법은 포기해야 할까요?
+
+그렇지 않습니다.  
+_🧑🏻‍🚀 Cooper said 💬 "We will find a way, professor, we always have."_
+
+우리는 `순수 함수 컴포넌트에 상속 개념을 적용할 수 있는 방법`을 찾았습니다.
+
+바로 `고차 함수로 순수 함수 컴포넌트를 래핑하는 것`입니다.
+
+```js
+// 📦TodoMVC_Ver.2.0 / 📂view / 📜app.js(컴포넌트)
+
+import todosView from './todos.js';
+import counterView from './counter.js';
+import filtersView from './filters.js';
+
+// 렌더링 함수(순수 함수)
+export default (targetElement, state) => {
+  const element = targetElement.cloneNode(true);
+
+  const list = element.querySelector('.todo-list');
+  const counter = element.querySelector('.todo-count');
+  const filters = element.querySelector('.filters');
+
+  list.replaceWith(todosView(list, state));
+  counter.replaceWith(counterView(counter, state));
+  filters.replaceWith(filtersView(filters, state));
+
+  return element;
+};
+```
+
+```js
+// 고차 함수로 래핑한 렌더링 함수
+
+const renderWrapper = (component) => {
+  // 매겨변수로 오리지널 컴포넌트를 전달 받습니다.
+  return (targetElement, state) => {
+    const element = component(targetElement, state);
+    const childComponents = element.querySelectorAll('[data-component]'); // data-component 속성을 가진 모든 DOM 요소(노드)를 담은 배열을 만들고
+    Array.from(childComponents).forEach((target) => {
+      // 해당 배열을 순회하면서
+      const name = target.dataset.component; // HTML DOM API에서 제공하는 dataset 프로퍼티를 이용해서 데이터 속성 값을 추출하고
+      //                                        https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset#accessing_values
+      const child = registry[name]; // 브라켓 노테이션으로 registry 객체에서 name키에 매핑되어 있는 컴포넌트를 찾아 child 변수에 담습니다.
+      if (!child) {
+        return;
+      }
+      target.replaceWith(child(target, state));
+      // data-component 속성을 가진 DOM 요소(노드)가 발견되면,
+      // child를 이용한 재귀적인 방식을 통해 마지막 컴포넌트까지 탐색합니다.
+    });
+    return element;
+  };
+};
+```
+
+`순수 함수 컴포넌트를 래핑하는 고차함수`인 renderWrapper 함수의 로직을 간단히 요약하면
+
+`오리지널 컴포넌트를 가져와서 동일한 함수 시그니처를 공유하는 새로운 컴포넌트를 반환`하는 것입니다.

@@ -37,7 +37,7 @@ TodoMVC 애플리케이션 Ver.1.0 에서 view함수의 결합도(Coupling)를 �
 ```
 (Before) Ver.1 - 하나의 거대한 view 함수 방식일 때의 폴더 구조
 
-📦01
+📦TodoMVC_Ver.1.0
 ┣ 📜getTodos.js
 ┣ 📜index.html
 ┣ 📜index.js
@@ -49,7 +49,7 @@ TodoMVC 애플리케이션 Ver.1.0 에서 view함수의 결합도(Coupling)를 �
 
 (After) Ver.2 - 작은 함수들로 나누고, view 함수에서 그것들을 import 해서 사용하는 방식일 때의 폴더 구조
 
-📦02
+📦TodoMVC_Ver.2.0
 ┣ 📂view
 ┃ ┣ 📜app.js
 ┃ ┣ 📜counter.js
