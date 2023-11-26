@@ -2,11 +2,9 @@
 
 ## Rendering Dinamic Data | 동적 데이터 렌더링
 
-### • The Virtual DOM | 가상 DOM
-
 <br />
 
-이전 예제에서는 정적 데이터를 사용했습니다.
+이전 버전까지는 정적 데이터를 사용했습니다.
 
 하지만 실제 어플리케이션에서는 사용자나 시스템의 이벤트에 의해 데이터가 변경됩니다.
 
@@ -14,7 +12,7 @@
 
 다음 챕터인 'DOM 이벤트 관리'에서는 이벤트 리스너를 이용한 코드들이 많이 등장할 예정이지만,
 
-이번 챕터에서는 HTML DOM API인 `setInterval()` 함수를 이용하여 5초마다 데이터(상태)가 바뀌는 방식으로 리팩토링 합니다.
+이번 챕터에서는 [window.setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) API를 이용하여 5초마다 데이터(상태)가 바뀌는 방식으로 리팩토링 합니다.
 
 <br/>
 
