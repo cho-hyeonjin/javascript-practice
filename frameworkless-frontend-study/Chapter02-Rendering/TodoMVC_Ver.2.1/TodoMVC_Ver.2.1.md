@@ -51,7 +51,6 @@ app view 함수(익명 함수)의 시그니처를 나머지 3개의 함수가 �
  ┃ ┣ 📜counter.js
  ┃ ┣ 📜filters.js
  ┃ ┗ 📜todos.js
- ┣ 📜TodoMVC_Ver.2.1.md
  ┣ 📜getTodos.js
  ┣ 📜index.html
  ┣ 📜index.js
@@ -61,7 +60,7 @@ app view 함수(익명 함수)의 시그니처를 나머지 3개의 함수가 �
 우선 Ver.2.0의 index.js를 보고 리팩토링이 필요한 부분이 어디인지 살펴보겠습니다.
 
 ```js
-// 📦TodoMVC_Ver.2.0 / 📂view / 📜app.js
+// 📦TodoMVC_Ver.2.0/📂view/📜app.js
 
 import todosView from './todos.js';
 import counterView from './counter.js';
@@ -213,7 +212,7 @@ _🧑🏻‍🚀 Cooper said 💬 "We will find a way, professor, we always have
     • 함수의 인자로 사용될 수 있다.
     • 함수의 결과로 사용될 수 있다.
 
-> ❓ [일급 객체 (First-class Object / First-class Citizen)](https://herlang.tistory.com/entry/함수)
+> ❓ [일급 객체 (First-class Object/First-class Citizen)](https://herlang.tistory.com/entry/함수)
 
     1. 무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다.
     2. 변수나 자료구조(객체, 배열 등)에 저장할 수 있다.
@@ -231,7 +230,7 @@ _🧑🏻‍🚀 Cooper said 💬 "We will find a way, professor, we always have
     3. JS는 일급 함수를 가지는 언어입니다.
 
 ```js
-// 📦TodoMVC_Ver.2.0 / 📂view / 📜app.js(컴포넌트)
+// 📦TodoMVC_Ver.2.0/📂view/📜app.js(컴포넌트)
 
 import todosView from './todos.js';
 import counterView from './counter.js';
@@ -254,7 +253,7 @@ export default (targetElement, state) => {
 ```
 
 ```js
-// 📦TodoMVC_Ver.2.1 / 📜registry.js 內 고차 함수로 래핑한 렌더링 메서드
+// 📦TodoMVC_Ver.2.1/📜registry.js 內 고차 함수로 래핑한 렌더링 메서드
 
 const renderWrapper = (component) => {
   // 매겨변수로 오리지널 컴포넌트를 전달 받습니다.
@@ -297,7 +296,7 @@ const renderWrapper = (component) => {
 레지스트리에 컴포넌트를 추가하는 로직에도 고차 함수로 래핑하는 방식이 사용됩니다.
 
 ```js
-// 📦TodoMVC_Ver.2.1 / 📜registry.js 內 레지스트리 접근자 메서드 (registry에 컴포넌트를 추가하는 로직)
+// 📦TodoMVC_Ver.2.1/📜registry.js 內 레지스트리 접근자 메서드 (registry에 컴포넌트를 추가하는 로직)
 
 const add = (name, component) => {
   registry[name] = renderWrapper(component);
@@ -309,7 +308,7 @@ const add = (name, component) => {
 이 메서드 또한 재귀적인 방식을 이용하는 고차함수로 구현합니다.
 
 ```js
-// 📦TodoMVC_Ver.2.1 / 📜registry.js 內 컴포넌트 기반 애플리케이션 부팅(최초 상태의 DOM으로 initial 렌더링) 메서드
+// 📦TodoMVC_Ver.2.1/📜registry.js 內 컴포넌트 기반 애플리케이션 부팅(최초 상태의 DOM으로 initial 렌더링) 메서드
 
 const renderRoot = (root, state) => {
   const cloneComponent = (root) => {
@@ -323,7 +322,7 @@ const renderRoot = (root, state) => {
 마지막으로 컨트롤러에서 모든 요소를 혼합하는 로직을 구현합니다.
 
 ```js
-// 📦TodoMVC_Ver.2.1 / 📜index.js
+// 📦TodoMVC_Ver.2.1/📜index.js
 
 import getTodos from './getTodos.js';
 import todosView from './view/todos.js';
