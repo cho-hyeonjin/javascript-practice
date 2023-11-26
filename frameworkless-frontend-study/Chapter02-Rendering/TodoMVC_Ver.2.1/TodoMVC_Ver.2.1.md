@@ -336,3 +336,10 @@ registry.add('todos', todosView);
 registry.add('counter', counterView);
 registry.add('filters', filtersView);
 ```
+
+이제 비로소 선언형 패러다임에 기반한 `프레임워크 없는 컴포넌트형 애플리케이션`의 기본 뼈대가 완성되었습니다.
+
+아래 그림은 프레임워크 없는 컴포넌트형 애플리케이션의 기본 스키마입니다.
+
+<img width="100%" src="https://github.com/cho-hyeonjin/javascript-practice/assets/78816754/09f560c8-c512-4b85-aee8-6756f270f776">
+<span style="font-size: 10px; text-align: center;">▲ Component Registry Schema</span>
